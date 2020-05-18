@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 
+import './Login.css';
+
 function Login() {
     const [name, setName] = useState('');
     const [auth, setAuth] = useState(false);
+    const [inputIsEmpty, setinputIsEmpty] = useState(false);
 
     const handleLogin = () => {
         if (!name.trim()) {
-            alert('You need to enter a name!');
+            setinputIsEmpty(true);
         }
         else {
             setAuth(true);
@@ -25,6 +28,7 @@ function Login() {
                 <label htmlFor="name">Enter name: </label>
                 <input id="name" name="name" type="text" placeholder="Your name" value={name} onChange={handleNameChange} />
                 <button id="playButton" onClick={handleLogin}>Play!</button>
+                {inputIsEmpty ? <p className='error'>You need to enter a name!</p> : null}
             </div>
         );
 }

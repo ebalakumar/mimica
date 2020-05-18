@@ -19,5 +19,10 @@ test('User can login and name is shown', () => {
 });
 
 test('User cannot login with empty name', () => {
+    const { getByRole, getByText } = render(<Login />);
 
+    const playButton = getByRole('button', { name: 'Play!' });
+    fireEvent.click(playButton);
+
+    expect(getByText('You need to enter a name!')).toBeTruthy();
 });
