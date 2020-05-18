@@ -3,7 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Mimica' });
+  res.status(200).json({
+    message: 'Welcome to Mimica!'
+  });
 });
 
 module.exports = router;
