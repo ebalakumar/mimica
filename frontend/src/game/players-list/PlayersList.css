@@ -1,0 +1,12 @@
+.players {
+    color: white;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    width: 30%;
+    float: left;
+}
+
+.individual-player {
+    background-color: rgb(62, 63, 68);
+    font-size: 20px;
+}
