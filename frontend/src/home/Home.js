@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import './Home.css';
+import { Redirect } from 'react-router-dom';
 
 function Login() {
     const [name, setName] = useState('');
@@ -22,7 +23,12 @@ function Login() {
     }
 
     return auth
-        ? <h1>Welcome {name}!</h1>
+        ? <Redirect to={{
+            pathname: "/game",
+            state: {
+                playerName: name
+            }
+        }} />
         : (
             <div>
                 <img id="logo" src={require("./mimica_logo.png")} />
